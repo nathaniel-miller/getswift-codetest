@@ -1,0 +1,11 @@
+{
+  "name": "getswift-codetest",
+  "version": "1.0.0",
+  "description": "drone manager code test",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "author": "Nathaniel Miller",
+  "license": "ISC"
+}
