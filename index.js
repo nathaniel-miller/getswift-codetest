@@ -39,8 +39,6 @@ function getJSON(path) {
   });
 }
 
-
-
 const makeRequest = async (path) => {
   return (await getJSON(path));
 }
@@ -48,5 +46,5 @@ const makeRequest = async (path) => {
 let drones = makeRequest('/drones');
 let packages = makeRequest('/packages');
 
-console.log(drones);
-console.log(packages);
+module.exports.drones = drones;
+module.exports.packages = packages;
