@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "drone manager code test",
   "main": "index.js",
+  "repository" : "https://github.com/nathaniel-miller/getswift-codetest",
   "scripts": {
     "test": "test"
   },
