@@ -1,0 +1,83 @@
+//export drones and packages data.
+//require drones and packages data.
+
+//function takes drones and packages.
+//outputs object with assignments and unassigned packages
+
+//function calcDistance(current, destination) {
+
+}
+
+//function calcTime(distance, speed) {
+  return distance / speed;
+}
+
+//function deliveryTime(package) { //time from base to destination
+  let d = calcDistance(basecoords, destcoords);
+  let t = calTime(d, 50km/hour)
+}
+
+//function availableTime(package) {
+  deadline - current time; //will be in seconds
+}
+
+//function returnTime(drone) {
+  let x = calcDistance(location, destination)
+  let y = calcDistance(destination, basecoords) 
+  // this (y) time could be stored rather than recalculated if drones could take more than one package.
+}
+
+//function requiredTime(deliveryTime, returnTime) {
+  deliveryTime + returnTime
+}
+
+//function isDeliverable(requiredTime, availableTime) {
+  availableTime - requiredTime > 0 ? true : false;
+}
+
+//function sortPackages(packages) {
+  //sort based upon smallest availableTime();
+}
+
+//function sortDrones(drones) {
+  //sort based upon shortest returnTime();
+}
+
+//function dispatch() {
+  //if first package is deliverable, assign. Else place into unassigned.
+}
+
+***PROBLEM***
+List Packages => Destinations + Times (Deadline - Current Time);
+
+Drones Can have a package (current location + destination + return to base)
+Drones Can be on their way back (return to base)
+Drones Can be at base.
+
+Time to deliver from base.
+
+//get lat and long of depo.
+//write a function to calculate distance between two locations (given lat/long).
+
+1) Calculate delivery time from base for each incoming package. (delivery time)
+2) Calculate how much time until deadline (available time).
+3) Calculate time until each drone can leave. (return time)
+
+4) Package with the the smallest amount of available time
+    (sort packages by (available time))
+   gets assigned to the drone with the smallest return time. 
+   (Sort by return time). 
+   IF (required time) < (available time).
+
+*If delivery time plus return time < available time 
+  = deliverable. (required time) //calculate this for every drone/package combo?   
+
+* What if a drone COULD delivery one package in the available time OR two closer packages?
+//Code Test Says this is not allowed - dispatching problem.
+
+
+
+
+
+
+
