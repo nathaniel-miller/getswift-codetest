@@ -6,6 +6,7 @@ const packages = data.packages;
 
 const depot = new Coords(-37.816664, 144.9638476 ); //https://www.maps.ie/coordinates.html
 const currentTime = Math.round(new Date() / 1000);
+const droneSpeed = 50;
 
 
 function packageDestination(package) {
@@ -33,6 +34,32 @@ function Coords(lat, long) {
   this.latitude = lat;
   this.longitude = long;
 }
+
+function time(distance, speed) {
+  return distance / speed;
+}
+
+function deliveryTime(package) {
+  let dist = distance(lat1, long1, lat2, long2);//revist input;
+  
+  return time(dist, droneSpeed);
+}
+
+function availableTime(package) {
+  return currentTime - package["deadline"];
+}
+
+function requiredTime(deliveryTime, returnTime) {
+  return deliveryTime + returnTime;
+}
+
+function isDeliverable(requiredTime, availableTime) {
+  return availableTime - requiredTime >= 0 ? true : false;
+}
+
+
+
+
 
 
 
