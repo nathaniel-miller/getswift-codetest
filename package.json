@@ -3,10 +3,13 @@
   "version": "1.0.0",
   "description": "drone manager code test",
   "main": "index.js",
-  "repository" : "https://github.com/nathaniel-miller/getswift-codetest",
+  "repository": "https://github.com/nathaniel-miller/getswift-codetest",
   "scripts": {
     "test": "test"
   },
   "author": "Nathaniel Miller",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "node-fetch": "^1.7.3"
+  }
 }

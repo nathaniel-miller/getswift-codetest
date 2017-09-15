@@ -10,9 +10,7 @@
   //return [lat, long];
 }
 
-function packageDeadline(package) {
-  return deadline;
-}
+
 
 function droneLocation(drone) {
   //return location;
@@ -20,6 +18,10 @@ function droneLocation(drone) {
 
 function droneDestination(drone) {
   return destination;
+}
+
+function packageDeadline(package) {
+  return deadline;
 }
 
 //base lat/long -37.8166597, 144.9616589
