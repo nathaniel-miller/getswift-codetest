@@ -11,6 +11,7 @@ function haversine(lat1, lon1, lat2, lon2) {
   dist = dist * 180/Math.PI;
   dist = dist * 60 * 1.1515;
   dist = dist * 1.609344;
+  dist = dist * 1000; //convert to meters
 
   return dist;
 }
