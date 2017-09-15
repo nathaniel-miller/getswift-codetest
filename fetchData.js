@@ -5,7 +5,7 @@ async function fetchData () {
   const droneResponse = await fetch(baseUrl + '/drones');
   const droneData = await droneResponse.json();
 
-  const packageResponse = await fetch(baseUrl + 'packages');
+  const packageResponse = await fetch(baseUrl + '/packages');
   const packageData = await packageResponse.json();
 
   return {
