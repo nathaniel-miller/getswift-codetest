@@ -72,12 +72,12 @@ describe('mPerSecond', () => {
 });
 
 describe('timeInSeconds', () => {
-  it('should return the number of seconds required to travel a x meters at y meters per second', () => {
+  it('should return the number of seconds required to travel x meters at y meters per second', () => {
     dispatcher.timeInSeconds(1, 1).should.equal(1);
     dispatcher.timeInSeconds(1000, 4).should.equal(250);
   });
 
-  it('should return 0 if the there is no distance to travel', () => {
+  it('should return 0 if there is no distance to travel', () => {
     dispatcher.timeInSeconds(0, 1).should.equal(0);
   });
 
@@ -111,7 +111,7 @@ describe('deliveryTime', () => {
     dispatcher.deliveryTime(testData.packageData[0], droneSpeed).should.equal(0);
   });
 
-  it('should return 3600 to deliver a package 50 km, moving km/h', () => {
+  it('should return 3600 to deliver a package 50 km, moving 50 km/h', () => {
     dispatcher.deliveryTime(testData.packageData[1], droneSpeed).should.equal(3600);
   });
 });
@@ -127,7 +127,7 @@ describe('returnTime', () => {
     dispatcher.returnTime(drone[2], depot, droneSpeed).should.equal(3600);
   });
 
-  it('should return 3600 if drone is 50km, moving 50km/h and has a package but is delivery to the depot', () => {
+  it('should return 3600 if drone is 50km, moving 50km/h and has a package but is delivering to the depot', () => {
     dispatcher.returnTime(drone[1], depot, droneSpeed).should.equal(3600);
   })
 
@@ -226,7 +226,7 @@ describe('holdAtLocation', () => {
     dispatcher.holdAtLocation(package1, depot).should.be.true;
   });
 
-  it('should return true if a package has a destination that is the same as a depots location', () => {
+  it('should return false if a package has a destination that is different than the depots location', () => {
     dispatcher.holdAtLocation(package2, depot).should.be.false;
   });
 });
@@ -245,7 +245,7 @@ describe('dispatch', () => {
     result.unassignedPackageIds.should.include(5);
   });
 
-  it('should return empty assignments/unassignedPackageId arrays if there are not packages', () => {
+  it('should return empty assignments/unassignedPackageId arrays if there are no packages at all', () => {
     let result = dispatcher.dispatch(data[6], argBundle);
     result.assignments.should.be.empty;
     result.unassignedPackageIds.should.be.empty;
