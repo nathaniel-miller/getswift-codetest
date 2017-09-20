@@ -15,7 +15,6 @@
   "devDependencies": {
     "chai": "*",
     "fetch-mock": "^5.12.2",
-    "mocha": "*",
-    "sinon": "^3.2.1"
+    "mocha": "*"
   }
 }

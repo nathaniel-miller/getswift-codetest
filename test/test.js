@@ -1,5 +1,4 @@
 const chai = require('chai');
-const sinon = require('sinon');
 const fetchData = require('../fetchData.js');
 const fetch = require('node-fetch');
 const fetchMock = require('fetch-mock');
@@ -7,12 +6,11 @@ const testData = require('./testData.js');
 const dispatcher = require('../dispatcher.js');
 const haversine = require('../haversine.js');
 
-const expect = chai.expect;
-chai.should();
-
 const currentTime = 1505585146;
 const depot = dispatcher.depot;
 const droneSpeed = 50/3.6;
+
+chai.should();
 
 
 describe('callAPI', () => {
