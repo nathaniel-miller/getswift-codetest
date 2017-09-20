@@ -2,14 +2,20 @@
   "name": "getswift-codetest",
   "version": "1.0.0",
   "description": "drone manager code test",
-  "main": "index.js",
+  "main": "dispatcher.js",
   "repository": "https://github.com/nathaniel-miller/getswift-codetest",
   "scripts": {
-    "test": "test"
+    "test": "mocha"
   },
   "author": "Nathaniel Miller",
   "license": "ISC",
   "dependencies": {
-    "node-fetch": "^1.7.3"
+    "isomorphic-fetch": "^2.2.1"
+  },
+  "devDependencies": {
+    "chai": "*",
+    "fetch-mock": "^5.12.2",
+    "mocha": "*",
+    "sinon": "^3.2.1"
   }
 }
