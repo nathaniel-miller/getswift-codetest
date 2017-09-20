@@ -1,17 +1,20 @@
-const fetch = require('node-fetch');
+require('isomorphic-fetch');
 
-async function fetchData () {
-  const baseUrl = 'https://codetest.kube.getswift.co';
-  const droneResponse = await fetch(baseUrl + '/drones');
-  const droneData = await droneResponse.json();
-
-  const packageResponse = await fetch(baseUrl + '/packages');
-  const packageData = await packageResponse.json();
+async function start() {
+  const baseURL = 'https://codetest.kube.getswift.co';
+  const droneData = await callAPI(baseURL, '/drones');
+  const packageData = await callAPI(baseURL, '/packages');
 
   return {
     "droneData" : droneData, 
     "packageData" : packageData
   };
+};
+
+async function callAPI (base, path) {
+  const response = await fetch(base + path);
+  return await response.json();
 }
 
-module.exports = fetchData;
+module.exports.start = start;
+module.exports.callAPI = callAPI;
