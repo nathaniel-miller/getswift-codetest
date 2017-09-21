@@ -25,20 +25,21 @@ function sortPackages(packages, depot) {
     return packages;
   }
 
-  let pivot = packages[0];
-  let earlier = [];
-  let later = [];
+  let m = packages.length / 2;
+  let a = sortPackages(packages.slice(0, m), depot);
+  let b = sortPackages(packages.slice(m), depot);
 
-  for(let i = 1; i < packages.length; i++) {
-    let currentPackage = packages[i];
+  return mergePackages(a, b);
+}
 
-    if(currentPackage.deadline < pivot.deadline) {
-      earlier.push(currentPackage);
-    } else {
-      later.push(currentPackage);
-    }
+function mergePackages(a, b) {
+  let results = [];
+
+  while(a.length && b.length) {
+    results.push(a[0].deadline <= b[0].deadline ? a.shift() : b.shift());
   }
-  return sortPackages(earlier).concat(pivot, sortPackages(later));
+
+  return results.concat(a.length ? a : b);  
 }
 
 function sortDrones(drones, depot, speed) {
