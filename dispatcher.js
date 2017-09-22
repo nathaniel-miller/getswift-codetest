@@ -20,26 +20,25 @@ function dispatch(data, p) {
   return processPackages(packages, drones, p);
 }
 
-function sortPackages(packages, depot) {
+function sortPackages(packages) {
   if(packages.length < 2) {
     return packages;
   }
 
-  let m = packages.length / 2;
-  let a = sortPackages(packages.slice(0, m), depot);
-  let b = sortPackages(packages.slice(m), depot);
+  let pivot = packages[0];
+  let earlier = [];
+  let later = [];
 
-  return mergePackages(a, b);
-}
+  for(let i = 1; i < packages.length; i++) {
+    let currentPackage = packages[i];
 
-function mergePackages(a, b) {
-  let results = [];
-
-  while(a.length && b.length) {
-    results.push(a[0].deadline <= b[0].deadline ? a.shift() : b.shift());
+    if(currentPackage.deadline < pivot.deadline) {
+      earlier.push(currentPackage);
+    } else {
+      later.push(currentPackage);
+    }
   }
-
-  return results.concat(a.length ? a : b);  
+  return sortPackages(earlier).concat(pivot, sortPackages(later));
 }
 
 function sortDrones(drones, depot, speed) {
